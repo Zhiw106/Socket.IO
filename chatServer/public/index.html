@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Socket.IO Connection Test</title>
+    <script
+      src="https://cdn.socket.io/4.4.0/socket.io.min.js"
+      integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var socket = io('http://localhost:8080');
+      socket.on('connect', function (data) {
+        socket.emit('chat message', 'Hello World');
+      });
+      socket.on('chat message', function (msg) {
+        console.log('received: ' + msg);
+      });
+    </script>
+  </head>
+  <body>
+    <p>Testing Socket Connection</p>
+  </body>
+</html>
